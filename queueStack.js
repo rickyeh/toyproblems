@@ -9,7 +9,6 @@ var Stack = function() {
     if (storage.length === 0 ) {
       return undefined;
     }
-
     var retVal = storage[storage.length - 1];
     storage.splice(storage.length - 1, 1);
 
@@ -32,26 +31,15 @@ var Queue = function() {
 
   this.enqueue = function(val){
     inbox.push(val);
-    inbox.printStorage();
   };
 
   this.dequeue = function(){
-    console.log('Dequeue Called');
-    console.log('outbox size', outbox.size);
     if (outbox.size() === 0) {
-      console.log('Outbox size is 0');
       if (inbox.size() === 0) {
         return undefined;
       }
-      console.log('Outbox is empty, popping all from inbox onto outbox');
       while(inbox.size() !== 0) {
-      console.log('inbox');
-      inbox.printStorage();
-      console.log('outbox');
-      outbox.printStorage();
-
         outbox.push(inbox.pop());
-
       }
     }
     return outbox.pop();
