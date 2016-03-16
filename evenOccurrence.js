@@ -1,11 +1,11 @@
-function evenOccurrence (arr) {
+function evenOccurrence(arr) {
   var characterCount = {};
 
   for (var i = 0; i < arr.length; i++) {
     var curr = arr[i];
 
     if (characterCount.hasOwnProperty(curr)) {
-      characterCount[curr]++;
+      characterCount[curr] ++;
     } else {
       characterCount[curr] = 1;
     }
@@ -20,5 +20,5 @@ function evenOccurrence (arr) {
   return null;
 }
 
-var arr1 = [ 1, 3, 3, 3, 2, 4, 4, 2, 5 ];
+var arr1 = [1, 3, 3, 3, 2, 4, 4, 2, 5];
 console.log(evenOccurrence(arr1));
