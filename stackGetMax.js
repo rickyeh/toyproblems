@@ -1,0 +1,37 @@
+var Stack = function() {
+  this.storage = [];
+  this.maxStack = [];
+}
+
+Stack.prototype.push = function(val) {
+  this.storage.push(val);
+
+  if (this.getMax() <= val) {
+    this.maxStack.push(val);
+  }
+}
+
+Stack.prototype.pop = function() {
+  var popValue = this.storage.pop();
+  
+  if (popValue === this.getMax()) {
+    this.maxStack.pop();
+  }
+
+  return popValue;
+}
+
+Stack.prototype.getMax = function() {
+  console.log(this.storage);
+  console.log(this.maxStack);
+  console.log();
+  if (this.maxStack.length === 0) {
+    return -Infinity;
+  }
+
+  return this.maxStack[this.maxStack.length - 1];
+}
+
+var myStack = new Stack();
+
+console.log(myStack.getMax());
