@@ -33,5 +33,11 @@ Stack.prototype.getMax = function() {
 }
 
 var myStack = new Stack();
-
+myStack.push(-10);
+myStack.push(1);
+myStack.push(-5);
+myStack.push(0);
+myStack.push(100);
+myStack.pop();
+myStack.pop();
 console.log(myStack.getMax());
