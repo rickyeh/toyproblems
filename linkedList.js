@@ -45,3 +45,40 @@ LinkedList.prototype.contains = function(target) {
   }
   return false;
 };
+
+LinkedList.prototype.log = function() {
+  var currNode = this.head;
+
+  while (currNode) {
+    console.log(currNode.value);
+    currNode = currNode.next;
+  }
+}
+
+LinkedList.prototype.reverse = function() {
+  var prev = this.head;
+  var curr = this.head.next;
+
+  prev.next = null;
+  this.head = this.tail;
+  this.tail = prev;
+
+  while (curr.next) {
+    var temp = curr.next;
+    curr.next = prev;
+
+    prev = curr;
+    curr = temp;
+  }
+
+  curr.next = prev;
+}
+
+var myList = new LinkedList(1);
+myList.addToTail(2);
+myList.addToTail(3);
+myList.addToTail(4);
+myList.log();
+console.log();
+myList.reverse();
+myList.log();
